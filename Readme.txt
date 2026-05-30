@@ -30,10 +30,7 @@ assignment2/
 GITHUB REPOSITORY
 --------------------------------------------------------------------------------
 
-[Insert GitHub repository URL here]
-e.g. https://github.com/yourusername/cos10005-assignment2
-
-The repository is accessible to markers for the duration of the marking period.
+https://github.com/Khalid-H375/assignment_2
 
 --------------------------------------------------------------------------------
 JAVASCRIPT VALIDATION LOGIC
