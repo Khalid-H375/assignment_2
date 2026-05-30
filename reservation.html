@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a Reservation – DineOut Melbourne</title>
+    <link rel="stylesheet" href="design/css/style.css">
+</head>
+<body>
+
+    <header>
+        <a class="logo" href="index.html">Dine<span>Out</span></a>
+        <span style="color:rgba(255,255,255,.55);font-size:.85rem;">Melbourne's Restaurant Discovery Platform</span>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="restaurants.html">Restaurants</a></li>
+            <li><a href="recommend.html">Recommend</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="reservation.html">Reserve</a></li>
+            <li><a href="bill.html">Bill Calculator</a></li>
+        </ul>
+    </nav>
+
+    <div class="page-hero">
+        <h1>Reserve Your Table</h1>
+    </div>
+
+    <main>
+        <div class="form-wrap" style="max-width:720px;">
+
+            <form id="reservation-form"
+                  method="POST"
+                  action="https://mercury.swin.edu.au/it000000/cos10005/regtest.php"
+                  onsubmit="return validateReservation(event);"
+                  novalidate>
+
+                <p class="form-section-title">Your Details</p> 
+
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="res-name">Full Name <span style="color:var(--error)">*</span></label>
+                    <input type="text" id="res-name" name="full_name"
+                           placeholder="e.g. Hossain Khalid" autocomplete="name">
+                    <span class="error-msg" id="res-name-error"></span>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="res-email">Email Address <span style="color:var(--error)">*</span></label>
+                    <input type="email" id="res-email" name="email"
+                           placeholder="you@example.com" autocomplete="email">
+                    <span class="error-msg" id="res-email-error"></span>
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+                    <label for="res-phone">Phone Number <span style="color:var(--error)">*</span></label>
+                    <input type="tel" id="res-phone" name="phone"
+                           placeholder="e.g. 0412345678" autocomplete="tel">
+                    <span class="error-msg" id="res-phone-error"></span>
+                    <small style="color:var(--text-muted);font-size:.78rem;">At least 10 digits required.</small>
+                </div>
+
+                <p class="form-section-title">Reservation Details</p>
+
+                <!-- Restaurant Selection -->
+                <div class="form-group">
+                    <label for="res-restaurant">Select Restaurant <span style="color:var(--error)">*</span></label>
+                    <select id="res-restaurant" name="restaurant">
+                        <option value="">— Choose a restaurant —</option>
+                        <option value="chinatown-dumplings">Chinatown Dumplings — Chinese</option>
+                        <option value="lucky-noodle-bar">Lucky Noodle Bar — Japanese/Chinese</option>
+                        <option value="saffron-palace">Saffron Palace — Indian (Halal)</option>
+                        <option value="la-bella-trattoria">La Bella Trattoria — Italian</option>
+                        <option value="sakura-ramen">Sakura Ramen House — Japanese</option>
+                        <option value="the-vegan-garden">The Vegan Garden — Plant-Based</option>
+                    </select>
+                    <span class="error-msg" id="res-restaurant-error"></span>
+                </div>
+
+                <!-- Deposit display (dynamic) -->
+                <div class="deposit-info" id="deposit-info-box" style="display:none;">
+                    Required deposit for this restaurant:
+                    <strong id="deposit-display">—</strong>
+                    <span style="font-size:.82rem;color:var(--text-muted);margin-left:.5rem;">
+                        (deducted from your total bill on the night)
+                    </span>
+                </div>
+
+                <!-- Date & Time -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="res-date">Reservation Date <span style="color:var(--error)">*</span></label>
+                        <input type="date" id="res-date" name="reservation_date">
+                        <span class="error-msg" id="res-date-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="res-time">Reservation Time <span style="color:var(--error)">*</span></label>
+                        <select id="res-time" name="reservation_time">
+                            <option value="">— Select time —</option>
+                            <option value="11:30">11:30 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="12:30">12:30 PM</option>
+                            <option value="13:00">1:00 PM</option>
+                            <option value="13:30">1:30 PM</option>
+                            <option value="17:30">5:30 PM</option>
+                            <option value="18:00">6:00 PM</option>
+                            <option value="18:30">6:30 PM</option>
+                            <option value="19:00">7:00 PM</option>
+                            <option value="19:30">7:30 PM</option>
+                            <option value="20:00">8:00 PM</option>
+                            <option value="20:30">8:30 PM</option>
+                        </select>
+                        <span class="error-msg" id="res-time-error"></span>
+                    </div>
+                </div>
+
+                <!-- Number of People -->
+                <div class="form-group">
+                    <label for="res-people">Number of People <span style="color:var(--error)">*</span></label>
+                    <input type="number" id="res-people" name="num_people"
+                           min="1" max="20" placeholder="e.g. 4">
+                    <span class="error-msg" id="res-people-error"></span>
+                </div>
+
+                <!-- Special Requests -->
+                <div class="form-group">
+                    <label for="res-requests">Special Requests <span style="color:var(--text-muted);font-weight:400;">(optional)</span></label>
+                    <textarea id="res-requests" name="special_requests"
+                              rows="3" placeholder="Allergies, seating preferences, special occasions…"></textarea>
+                </div>
+
+                <p class="form-section-title">Deposit Payment</p>
+
+                <!-- Payment Method -->
+                <div class="form-group">
+                    <label for="res-payment">Payment Method <span style="color:var(--error)">*</span></label>
+                    <select id="res-payment" name="payment_method">
+                        <option value="">— Select payment method —</option>
+                        <option value="voucher">Voucher</option>
+                        <option value="online">Online Payment (Credit/Debit Card)</option>
+                    </select>
+                    <span class="error-msg" id="res-payment-error"></span>
+                </div>
+
+                <!-- Voucher Section -->
+                <div class="form-group conditional" id="voucher-section">
+                    <label for="res-voucher">Voucher Code</label>
+                    <input type="text" id="res-voucher" name="voucher_code"
+                           placeholder="Enter 12-digit voucher code" maxlength="12">
+                    <small style="color:var(--text-muted);font-size:.78rem;">12 digits required on your voucher.</small>
+                    <span class="error-msg" id="res-voucher-error"></span>
+                </div>
+
+                <!-- Online Card Section  -->
+                <div class="conditional" id="card-section">
+                    <div class="form-group">
+                        <label for="res-card-type">Card Type <span style="color:var(--error)">*</span></label>
+                        <select id="res-card-type" name="card_type">
+                            <option value="visa">Visa (16 digits)</option>
+                            <option value="mastercard">Mastercard (16 digits)</option>
+                            <option value="amex">American Express (15 digits)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="res-card">Card Number <span style="color:var(--error)">*</span></label>
+                        <input type="text" id="res-card" name="card_number"
+                               placeholder="Digits only — use fake card numbers for testing"
+                               maxlength="16" autocomplete="off">
+                        <small style="color:var(--text-muted);font-size:.78rem;">
+                            Visa/Mastercard: 16 digits &nbsp;|&nbsp; Amex: 15 digits.
+                            <strong>Use test/fake numbers only.</strong>
+                        </small>
+                        <span class="error-msg" id="res-card-error"></span>
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <div class="form-group" style="margin-top:1.5rem;">
+                    <button type="submit" class="btn btn-full" style="padding:.8rem;font-size:1rem;">
+                        Confirm Reservation &amp; Pay Deposit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DineOut Melbourne &mdash; Hossain Khalid, 105978364 &mdash; Swinburne University of Technology</p>
+    </footer>
+
+    <script src="design/js/script.js"></script>
+
+    <script>
+        document.getElementById('res-restaurant').addEventListener('change', function () {
+            const box = document.getElementById('deposit-info-box');
+            box.style.display = this.value ? 'block' : 'none';
+            updateDeposit();
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurants – DineOut Melbourne</title>
+    <link rel="stylesheet" href="design/css/style.css">
+</head>
+<body>
+
+    <header>
+        <a class="logo" href="index.html">Dine<span>Out</span></a>
+        <span style="color:rgba(255,255,255,.55);font-size:.85rem;">Melbourne's Restaurant Discovery Platform</span>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="restaurants.html">Restaurants</a></li>
+            <li><a href="recommend.html">Recommend</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="reservation.html">Reserve</a></li>
+            <li><a href="bill.html">Bill Calculator</a></li>
+        </ul>
+    </nav>
+
+    <div class="page-hero">
+        <h1>Our Restaurants</h1>
+        <p>Explore Melbourne's finest dining — 6 curated venues for every taste and occasion</p>
+    </div>
+
+    <main>
+
+        <!-- Restaurant 1 -->
+        <div class="card" style="display:grid;grid-template-columns:300px 1fr;margin-bottom:2rem;" id="chinatown-dumplings">
+            <img src="design/images/restaurant1.jpg" alt="Chinatown Dumplings restaurant interior with dim sum baskets" style="width:100%;height:100%;object-fit:cover;">
+            <section class="card-body" style="padding:1.8rem;">
+                <span class="tag">Chinese</span>
+                <h2 class="card-title" style="font-size:1.5rem;">Chinatown Dumplings</h2>
+                <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:.8rem;">
+                    Authentic Cantonese dim sum and dumplings in the bustling heart of Melbourne's Chinatown.
+                </p>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem 1.5rem;font-size:.9rem;margin-bottom:1rem;">
+                    <div><strong>Cuisine:</strong> Chinese / Cantonese</div>
+                    <div><strong>Avg. Price:</strong> <span class="price-badge">$10–$20 per person</span></div>
+                    <div><strong>Dietary:</strong> Halal, None</div>
+                    <div><strong>Reservation Deposit:</strong> <span class="price-badge">$20</span></div>
+                </div>
+                <h3 style="margin-bottom:.4rem;font-size:.95rem;">Signature Dishes</h3>
+                <ul style="list-style:none;font-size:.88rem;color:var(--text-muted);margin-bottom:1.2rem;">
+                    <li> Pork &amp; Prawn Dumplings — <strong>$8</strong></li>
+                    <li> Har Gow (Prawn Dumplings) — <strong>$9</strong></li>
+                    <li> BBQ Pork Char Siu Bun — <strong>$5</strong></li>
+                    <li> Wonton Noodle Soup — <strong>$14</strong></li>
+                </ul>
+                <a href="reservation.html?restaurant=chinatown-dumplings" class="btn">Reserve a Table</a>
+            </section>
+        </div>
+
+        <!-- Restaurant 2 -->
+        <div class="card" style="display:grid;grid-template-columns:300px 1fr;margin-bottom:2rem;" id="lucky-noodle-bar">
+            <img src="design/images/restaurant2.jpg" alt="Lucky Noodle Bar warm ramen bowls on a wooden table" style="width:100%;height:100%;object-fit:cover;">
+            <section class="card-body" style="padding:1.8rem;">
+                <span class="tag">Japanese / Chinese</span>
+                <h2 class="card-title" style="font-size:1.5rem;">Lucky Noodle Bar</h2>
+                <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:.8rem;">
+                    A cosy noodle bar famous for its slow-simmered broths and hand-pulled noodles.
+                </p>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem 1.5rem;font-size:.9rem;margin-bottom:1rem;">
+                    <div><strong>Cuisine:</strong> Japanese / Chinese</div>
+                    <div><strong>Avg. Price:</strong> <span class="price-badge">$15–$25 per person</span></div>
+                    <div><strong>Dietary:</strong> Vegetarian, None</div>
+                    <div><strong>Reservation Deposit:</strong> <span class="price-badge">$15</span></div>
+                </div>
+                <h3 style="margin-bottom:.4rem;font-size:.95rem;">Signature Dishes</h3>
+                <ul style="list-style:none;font-size:.88rem;color:var(--text-muted);margin-bottom:1.2rem;">
+                    <li> Tonkotsu Ramen — <strong>$17</strong></li>
+                    <li> Shoyu Ramen — <strong>$16</strong></li>
+                    <li> Gyoza (6 pcs) — <strong>$10</strong></li>
+                    <li> Vegetable Miso Ramen — <strong>$15</strong></li>
+                </ul>
+                <a href="reservation.html?restaurant=lucky-noodle-bar" class="btn">Reserve a Table</a>
+            </section>
+        </div>
+
+        <!-- Restaurant 3 -->
+        <div class="card" style="display:grid;grid-template-columns:300px 1fr;margin-bottom:2rem;" id="saffron-palace">
+            <img src="design/images/restaurant3.jpg" alt="Saffron Palace elegant Indian restaurant with saffron-coloured decor" style="width:100%;height:100%;object-fit:cover;">
+            <section class="card-body" style="padding:1.8rem;">
+                <span class="tag">Indian</span>
+                <h2 class="card-title" style="font-size:1.5rem;">Saffron Palace</h2>
+                <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:.8rem;">
+                    Elegant Halal-certified Indian restaurant offering a broad menu of fragrant curries, freshly baked naan, and plant-based specialties.
+                </p>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem 1.5rem;font-size:.9rem;margin-bottom:1rem;">
+                    <div><strong>Cuisine:</strong> Indian</div>
+                    <div><strong>Avg. Price:</strong> <span class="price-badge">$25–$40 per person</span></div>
+                    <div><strong>Dietary:</strong> Halal, Vegetarian, Vegan</div>
+                    <div><strong>Reservation Deposit:</strong> <span class="price-badge">$25</span></div>
+                </div>
+                <h3 style="margin-bottom:.4rem;font-size:.95rem;">Signature Dishes</h3>
+                <ul style="list-style:none;font-size:.88rem;color:var(--text-muted);margin-bottom:1.2rem;">
+                    <li> Butter Chicken — <strong>$22</strong></li>
+                    <li> Dal Makhani (Vegan) — <strong>$18</strong></li>
+                    <li> Garlic Naan — <strong>$5</strong></li>
+                    <li> Lamb Biryani — <strong>$26</strong></li>
+                </ul>
+                <a href="reservation.html?restaurant=saffron-palace" class="btn">Reserve a Table</a>
+            </section>
+        </div>
+
+        <!-- Restaurant 4 -->
+        <div class="card" style="display:grid;grid-template-columns:300px 1fr;margin-bottom:2rem;" id="la-bella-trattoria">
+            <img src="design/images/restaurant4.jpg" alt="La Bella Trattoria candlelit Italian dining room" style="width:100%;height:100%;object-fit:cover;">
+            <section class="card-body" style="padding:1.8rem;">
+                <span class="tag">Italian</span>
+                <h2 class="card-title" style="font-size:1.5rem;">La Bella Trattoria</h2>
+                <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:.8rem;">
+                    Sophisticated Italian trattoria with a curated wine list and handmade fresh pasta.
+                </p>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem 1.5rem;font-size:.9rem;margin-bottom:1rem;">
+                    <div><strong>Cuisine:</strong> Italian</div>
+                    <div><strong>Avg. Price:</strong> <span class="price-badge">$50–$80 per person</span></div>
+                    <div><strong>Dietary:</strong> Vegetarian, None</div>
+                    <div><strong>Reservation Deposit:</strong> <span class="price-badge">$30</span></div>
+                </div>
+                <h3 style="margin-bottom:.4rem;font-size:.95rem;">Signature Dishes</h3>
+                <ul style="list-style:none;font-size:.88rem;color:var(--text-muted);margin-bottom:1.2rem;">
+                    <li> Truffle Tagliatelle — <strong>$38</strong></li>
+                    <li> Seafood Risotto — <strong>$42</strong></li>
+                    <li> Classic Tiramisu — <strong>$14</strong></li>
+                    <li> Burrata &amp; Heirloom Tomato — <strong>$18</strong></li>
+                </ul>
+                <a href="reservation.html?restaurant=la-bella-trattoria" class="btn">Reserve a Table</a>
+            </section>
+        </div>
+
+        <!-- Restaurant 5 -->
+        <div class="card" style="display:grid;grid-template-columns:300px 1fr;margin-bottom:2rem;" id="sakura-ramen">
+            <img src="design/images/restaurant5.jpg" alt="Sakura Ramen House with Japanese lanterns and steaming ramen bowls" style="width:100%;height:100%;object-fit:cover;">
+            <section class="card-body" style="padding:1.8rem;">
+                <span class="tag">Japanese</span>
+                <h2 class="card-title" style="font-size:1.5rem;">Sakura Ramen House</h2>
+                <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:.8rem;">
+                    Warm Izakaya-style ramen house serving handcrafted broths simmered for 18 hours.
+                </p>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem 1.5rem;font-size:.9rem;margin-bottom:1rem;">
+                    <div><strong>Cuisine:</strong> Japanese</div>
+                    <div><strong>Avg. Price:</strong> <span class="price-badge">$20–$35 per person</span></div>
+                    <div><strong>Dietary:</strong> Vegetarian, None</div>
+                    <div><strong>Reservation Deposit:</strong> <span class="price-badge">$20</span></div>
+                </div>
+                <h3 style="margin-bottom:.4rem;font-size:.95rem;">Signature Dishes</h3>
+                <ul style="list-style:none;font-size:.88rem;color:var(--text-muted);margin-bottom:1.2rem;">
+                    <li> Spicy Miso Ramen — <strong>$21</strong></li>
+                    <li> Chashu Pork Rice Bowl — <strong>$19</strong></li>
+                    <li> Takoyaki (6 pcs) — <strong>$12</strong></li>
+                    <li> Matcha Ice Cream — <strong>$8</strong></li>
+                </ul>
+                <a href="reservation.html?restaurant=sakura-ramen" class="btn">Reserve a Table</a>
+            </section>
+        </div>
+
+        <!-- Restaurant 6 -->
+        <div class="card" style="display:grid;grid-template-columns:300px 1fr;margin-bottom:2rem;" id="the-vegan-garden">
+            <img src="design/images/restaurant6.jpg" alt="The Vegan Garden bright plant-based restaurant with greenery decor" style="width:100%;height:100%;object-fit:cover;">
+            <section class="card-body" style="padding:1.8rem;">
+                <span class="tag">Plant-Based</span>
+                <h2 class="card-title" style="font-size:1.5rem;">The Vegan Garden</h2>
+                <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:.8rem;">
+                    Melbourne's favourite plant-based restaurant, proving vegan food can be bold, colourful, and deeply satisfying.
+                </p>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem 1.5rem;font-size:.9rem;margin-bottom:1rem;">
+                    <div><strong>Cuisine:</strong> Plant-Based / Fusion</div>
+                    <div><strong>Avg. Price:</strong> <span class="price-badge">$20–$38 per person</span></div>
+                    <div><strong>Dietary:</strong> Vegan, Vegetarian</div>
+                    <div><strong>Reservation Deposit:</strong> <span class="price-badge">$15</span></div>
+                </div>
+                <h3 style="margin-bottom:.4rem;font-size:.95rem;">Signature Dishes</h3>
+                <ul style="list-style:none;font-size:.88rem;color:var(--text-muted);margin-bottom:1.2rem;">
+                    <li> Jackfruit Tacos (3 pcs) — <strong>$18</strong></li>
+                    <li> Wild Mushroom Wellington — <strong>$26</strong></li>
+                    <li> Açaí Breakfast Bowl — <strong>$14</strong></li>
+                    <li> Cauliflower Steak — <strong>$22</strong></li>
+                </ul>
+                <a href="reservation.html?restaurant=the-vegan-garden" class="btn">Reserve a Table</a>
+            </section>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DineOut Melbourne &mdash; Hossain Khalid, 105978364 &mdash; Swinburne University of Technology</p>
+    </footer>
+
+    <script src="design/js/script.js"></script>
+</body>
+</html>

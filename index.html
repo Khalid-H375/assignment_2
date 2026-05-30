@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DineOut Melbourne – Discover & Reserve Restaurants</title>
+    <link rel="stylesheet" href="design/css/style.css">
+</head>
+<body>
+    <header>
+        <a class="logo" href="index.html">
+            Dine<span>Out</span>
+        </a>
+        <span style="color:rgba(255,255,255,.55);font-size:.85rem;">Melbourne's Restaurant Discovery Platform</span>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="restaurants.html">Restaurants</a></li>
+            <li><a href="recommend.html">Recommend</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="reservation.html">Reserve</a></li>
+            <li><a href="bill.html">Bill Calculator</a></li>
+        </ul>
+    </nav>
+
+    <section style="
+        background: linear-gradient(135deg, #1a3a2a 0%, #2d6a4f 50%, #1a3a2a 100%);
+        color: #fff;
+        padding: 5rem 2rem;
+        text-align: center;
+    ">
+        <h1 style="color:#fff;font-size:clamp(2rem,5vw,3.5rem);margin-bottom:1rem;">
+            Discover Melbourne's Finest<br>
+            <span style="color:var(--accent-light)">Dining Experiences</span>
+        </h1>
+        <p style="color:rgba(255,255,255,.8);font-size:1.15rem;max-width:600px;margin:0 auto 2rem;">
+            Browse top restaurants, get personalised recommendations, and secure your table in minutes — all in one place.
+        </p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+            <a href="restaurants.html" class="btn" style="font-size:1rem;padding:.8rem 2rem;">Browse Restaurants</a>
+            <a href="recommend.html" class="btn btn-outline" style="font-size:1rem;padding:.8rem 2rem;border-color:var(--accent-light);color:var(--accent-light);">Get Recommendations</a>
+        </div>
+    </section>
+
+    <main>
+
+        <!-- About the platform -->
+        <section style="margin-bottom:3rem;">
+            <div class="section-header">
+                <h2>About DineOut</h2>
+                <p>Your gateway to Melbourne's vibrant food scene</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-body" style="text-align:center;padding:2rem 1.5rem;">
+                        <div style="font-size:2.5rem;margin-bottom:.8rem;">🍜</div>
+                        <h3 class="card-title">Restaurant Discovery</h3>
+                        <p style="font-size:.9rem;color:var(--text-muted);">
+                            Explore a curated selection of restaurants across Melbourne.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body" style="text-align:center;padding:2rem 1.5rem;">
+                        <div style="font-size:2.5rem;margin-bottom:.8rem;">✨</div>
+                        <h3 class="card-title">Smart Recommendations</h3>
+                        <p style="font-size:.9rem;color:var(--text-muted);">
+                            Not sure where to eat? The recommendation engine matches you to the perfect restaurant based on your dietary preferences, budget, and dining occasion.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body" style="text-align:center;padding:2rem 1.5rem;">
+                        <div style="font-size:2.5rem;margin-bottom:.8rem;">📅</div>
+                        <h3 class="card-title">Easy Reservations</h3>
+                        <p style="font-size:.9rem;color:var(--text-muted);">
+                            Book your table in seconds with our seamless reservation system.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- Who is it for -->
+        <section style="margin-bottom:3rem;">
+            <div class="section-header">
+                <h2>Who Is DineOut For?</h2>
+                <p>We cater to every type of diner in Melbourne</p>
+            </div>
+
+            <div class="grid-2">
+                <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.2rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);">
+                    <span style="font-size:1.8rem;">👨‍👩‍👧‍👦</span>
+                    <div>
+                        <h3>Families</h3>
+                        <p style="font-size:.9rem;color:var(--text-muted);">Find a nice place to eat out with your family.</p>
+                    </div>
+                </div>
+
+                <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.2rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);">
+                    <span style="font-size:1.8rem;">💑</span>
+                    <div>
+                        <h3>Couples</h3>
+                        <p style="font-size:.9rem;color:var(--text-muted);">Discover the perfect spot for a romantic dinner.</p>
+                    </div>
+                </div>
+
+                <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.2rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);">
+                    <span style="font-size:1.8rem;">💼</span>
+                    <div>
+                        <h3>Professionals</h3>
+                        <p style="font-size:.9rem;color:var(--text-muted);">Impress clients or celebrate team achievements.</p>
+                    </div>
+                </div>
+
+                <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.2rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);">
+                    <span style="font-size:1.8rem;">🗺️</span>
+                    <div>
+                        <h3>Tourists</h3>
+                        <p style="font-size:.9rem;color:var(--text-muted);">New to Melbourne? Let DineOut be your culinary guide.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+
+        <!-- Quick CTA cards -->
+        <section>
+            <div class="section-header">
+                <h2>Ready to Dine?</h2>
+                <p>Jump straight to what you need</p>
+            </div>
+            <div class="grid-3">
+                <div class="card" style="text-align:center;">
+                    <div class="card-body" style="padding:1.5rem;">
+                        <h3>🍽️ Browse Restaurants</h3>
+                        <p style="font-size:.88rem;color:var(--text-muted);margin:.5rem 0 1rem;">Explore all 6 featured restaurants with full details and menus.</p>
+                        <a href="restaurants.html" class="btn btn-full">View All Restaurants</a>
+                    </div>
+                </div>
+                <div class="card" style="text-align:center;">
+                    <div class="card-body" style="padding:1.5rem;">
+                        <h3>🎯 Get Recommended</h3>
+                        <p style="font-size:.88rem;color:var(--text-muted);margin:.5rem 0 1rem;">Answer 3 quick questions and we'll find your perfect match.</p>
+                        <a href="recommend.html" class="btn btn-full">Start Recommendation</a>
+                    </div>
+                </div>
+                <div class="card" style="text-align:center;">
+                    <div class="card-body" style="padding:1.5rem;">
+                        <h3>📋 Make a Reservation</h3>
+                        <p style="font-size:.88rem;color:var(--text-muted);margin:.5rem 0 1rem;">Book your table directly and lock in your spot with a deposit.</p>
+                        <a href="reservation.html" class="btn btn-full">Reserve Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DineOut Melbourne &mdash; Hossain Khalid, 105978364 &mdash; Swinburne University of Technology</p>
+    </footer>
+
+    <script src="design/js/script.js"></script>
+</body>
+</html>

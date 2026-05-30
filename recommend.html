@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Recommendations – DineOut Melbourne</title>
+    <link rel="stylesheet" href="design/css/style.css">
+</head>
+<body>
+
+    <header>
+        <a class="logo" href="index.html">Dine<span>Out</span></a>
+        <span style="color:rgba(255,255,255,.55);font-size:.85rem;">Melbourne's Restaurant Discovery Platform</span>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="restaurants.html">Restaurants</a></li>
+            <li><a href="recommend.html">Recommend</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="reservation.html">Reserve</a></li>
+            <li><a href="bill.html">Bill Calculator</a></li>
+        </ul>
+    </nav>
+
+    <div class="page-hero">
+        <h1>Find Your Perfect Restaurant</h1>
+    </div>
+
+    <main>
+
+        <!-- Recommendation Form -->
+        <section style="max-width:600px;margin:0 auto 3rem;">
+            <div class="form-wrap">
+                <h2 style="margin-bottom:1.2rem;text-align:center;font-size:1.4rem;">Your Preferences</h2>
+
+                <p id="rec-error" class="alert alert-error" style="display:none;">
+                    Please answer all three questions before searching.
+                </p>
+
+                <form id="recommend-form" onsubmit="return runRecommendation(event);" novalidate>
+
+                    <!-- Dietary Preference -->
+                    <div class="form-group">
+                        <label for="rec-dietary">Dietary Preference</label>
+                        <select id="rec-dietary" name="rec-dietary" required>
+                            <option value="">— Select a preference —</option>
+                            <option value="none">No restrictions</option>
+                            <option value="halal">Halal</option>
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="vegan">Vegan</option>
+                        </select>
+                    </div>
+
+                    <!-- Budget -->
+                    <div class="form-group">
+                        <label for="rec-budget">Budget per Person</label>
+                        <select id="rec-budget" name="rec-budget" required>
+                            <option value="">— Select a budget —</option>
+                            <option value="low">Budget-friendly (under $25)</option>
+                            <option value="mid">Mid-range ($25–$45)</option>
+                            <option value="high">Fine Dining ($45+)</option>
+                        </select>
+                    </div>
+
+                    <!-- Dining Purpose -->
+                    <div class="form-group">
+                        <label for="rec-purpose">Dining Occasion</label>
+                        <select id="rec-purpose" name="rec-purpose" required>
+                            <option value="">— Select an occasion —</option>
+                            <option value="family">Family Outing</option>
+                            <option value="date">Romantic Date</option>
+                            <option value="business">Business Meal</option>
+                            <option value="casual">Casual with Friends</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-full" style="margin-top:.5rem;padding:.8rem;">
+                        Find My Restaurant
+                    </button>
+
+                </form>
+            </div>
+
+        </section>
+
+        <!-- Results injected here by script.js -->
+        <div id="rec-results"></div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DineOut Melbourne &mdash; Hossain Khalid, 105978364 &mdash; Swinburne University of Technology</p>
+    </footer>
+
+    <script src="design/js/script.js"></script>
+</body>
+</html>

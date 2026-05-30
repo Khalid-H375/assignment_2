@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Calculator – DineOut Melbourne</title>
+    <link rel="stylesheet" href="design/css/style.css">
+</head>
+<body>
+
+    <header>
+        <a class="logo" href="index.html">Dine<span>Out</span></a>
+        <span style="color:rgba(255,255,255,.55);font-size:.85rem;">Melbourne's Restaurant Discovery Platform</span>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="restaurants.html">Restaurants</a></li>
+            <li><a href="recommend.html">Recommend</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="reservation.html">Reserve</a></li>
+            <li><a href="bill.html">Bill Calculator</a></li>
+        </ul>
+    </nav>
+
+    <div class="page-hero">
+        <h1>Estimated Bill Calculator</h1>
+        <p>Get an estimate of your total dining cost before you arrive</p>
+    </div>
+
+    <main>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:900px;margin:0 auto;">
+
+            <!-- Calculator Form -->
+            <div class="form-wrap" style="margin:0;">
+                <h2 style="margin-bottom:1.2rem;font-size:1.3rem;">Calculate Your Bill</h2>
+
+                <!-- Restaurant -->
+                <div class="form-group">
+                    <label for="bill-restaurant">Restaurant</label>
+                    <select id="bill-restaurant" name="bill_restaurant" onchange="updateDishOptions()">
+                        <option value="">— Select a restaurant —</option>
+                        <option value="chinatown-dumplings">Chinatown Dumplings</option>
+                        <option value="lucky-noodle-bar">Lucky Noodle Bar</option>
+                        <option value="saffron-palace">Saffron Palace</option>
+                        <option value="la-bella-trattoria">La Bella Trattoria</option>
+                        <option value="sakura-ramen">Sakura Ramen House</option>
+                        <option value="the-vegan-garden">The Vegan Garden</option>
+                    </select>
+                </div>
+
+                <!-- Number of people -->
+                <div class="form-group">
+                    <label for="bill-people">Number of People</label>
+                    <input type="number" id="bill-people" name="bill_people"
+                           min="1" max="20" value="2" placeholder="e.g. 4">
+                </div>
+
+                <!-- Dish selection (dynamic) -->
+                <div class="form-group" id="dish-section" style="display:none;">
+                    <label>Select Dishes <span style="font-weight:400;color:var(--text-muted)">(per person — leave blank for average estimate)</span></label>
+                    <div id="dish-list" style="display:flex;flex-direction:column;gap:.4rem;margin-top:.4rem;"></div>
+                </div>
+
+                <!-- Service charge -->
+                <div class="form-group">
+                    <div style="display:flex;align-items:center;gap:.7rem;">
+                        <input type="checkbox" id="bill-service" name="bill_service" style="width:auto;">
+                        <label for="bill-service" style="margin:0;font-weight:400;font-size:.92rem;">
+                            Include 10% service charge
+                        </label>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-full" onclick="calculateBill()" style="padding:.75rem;">
+                    Calculate Estimate
+                </button>
+            </div>
+
+            <!-- Results -->
+            <div>
+                <div id="bill-result" style="display:none;">
+                    <div style="background:var(--primary);color:#fff;border-radius:var(--radius);padding:1.8rem;">
+                        <h2 style="color:#fff;margin-bottom:1.5rem;font-size:1.3rem;">Your Estimated Bill</h2>
+
+                        <div style="display:flex;flex-direction:column;gap:.9rem;font-size:.95rem;">
+                            <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:.7rem;">
+                                <span style="color:rgba(255,255,255,.75);">Food Subtotal</span>
+                                <strong id="bill-subtotal">$0.00</strong>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:.7rem;">
+                                <span style="color:rgba(255,255,255,.75);">Service Charge (10%)</span>
+                                <strong id="bill-service-fee">$0.00</strong>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;font-size:1.1rem;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:.7rem;">
+                                <span>Estimated Total</span>
+                                <strong id="bill-total" style="color:var(--accent-light);">$0.00</strong>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:.7rem;">
+                                <span style="color:rgba(255,255,255,.75);">Deposit Paid</span>
+                                <strong id="bill-deposit-paid" style="color:#a8dfbf;">– $0.00</strong>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;font-size:1.15rem;">
+                                <span>Balance Due on Arrival</span>
+                                <strong id="bill-balance" style="color:var(--accent-light);">$0.00</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:1rem;text-align:center;">
+                        <a href="reservation.html" class="btn btn-outline" style="font-size:.9rem;">
+                            Make a Reservation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DineOut Melbourne &mdash; Hossain Khalid, 105978364 &mdash; Swinburne University of Technology</p>
+    </footer>
+
+    <script src="design/js/script.js"></script>
+
+    <script>
+        const BILL_MENUS = {
+            'chinatown-dumplings': [
+                { name: 'Pork & Prawn Dumplings', price: 8 },
+                { name: 'Har Gow',                price: 9 },
+                { name: 'BBQ Pork Bun',           price: 5 },
+                { name: 'Wonton Noodle Soup',     price: 14 },
+            ],
+            'lucky-noodle-bar': [
+                { name: 'Tonkotsu Ramen',    price: 17 },
+                { name: 'Shoyu Ramen',       price: 16 },
+                { name: 'Gyoza (6 pcs)',     price: 10 },
+                { name: 'Veg Miso Ramen',   price: 15 },
+            ],
+            'saffron-palace': [
+                { name: 'Butter Chicken',  price: 22 },
+                { name: 'Dal Makhani',     price: 18 },
+                { name: 'Garlic Naan',     price: 5  },
+                { name: 'Lamb Biryani',    price: 26 },
+            ],
+            'la-bella-trattoria': [
+                { name: 'Truffle Tagliatelle',        price: 38 },
+                { name: 'Seafood Risotto',            price: 42 },
+                { name: 'Classic Tiramisu',           price: 14 },
+                { name: 'Burrata & Heirloom Tomato',  price: 18 },
+            ],
+            'sakura-ramen': [
+                { name: 'Spicy Miso Ramen',    price: 21 },
+                { name: 'Chashu Pork Bowl',    price: 19 },
+                { name: 'Takoyaki (6 pcs)',    price: 12 },
+                { name: 'Matcha Ice Cream',    price: 8  },
+            ],
+            'the-vegan-garden': [
+                { name: 'Jackfruit Tacos (3)',       price: 18 },
+                { name: 'Wild Mushroom Wellington',  price: 26 },
+                { name: 'Açaí Breakfast Bowl',       price: 14 },
+                { name: 'Cauliflower Steak',         price: 22 },
+            ],
+        };
+
+        /**
+         * Populate dish checkboxes when restaurant selection changes.
+         */
+        function updateDishOptions() {
+            const restaurantId = document.getElementById('bill-restaurant').value;
+            const section      = document.getElementById('dish-section');
+            const list         = document.getElementById('dish-list');
+            list.innerHTML     = '';
+
+            if (!restaurantId || !BILL_MENUS[restaurantId]) {
+                section.style.display = 'none';
+                return;
+            }
+
+            BILL_MENUS[restaurantId].forEach((dish, i) => {
+                const label = document.createElement('label');
+                label.style.cssText = 'display:flex;align-items:center;gap:.5rem;font-size:.9rem;cursor:pointer;';
+                label.innerHTML = `
+                    <input type="checkbox" class="dish-check" data-price="${dish.price}"
+                           id="dish-${i}" style="width:auto;">
+                    ${dish.name} — <strong>$${dish.price}</strong>
+                `;
+                list.appendChild(label);
+            });
+
+            section.style.display = 'block';
+
+            // live recalculation
+            list.querySelectorAll('.dish-check').forEach(cb => {
+                cb.addEventListener('change', calculateBill);
+            });
+        }
+    </script>
+</body>
+</html>

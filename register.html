@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register – DineOut Melbourne</title>
+    <link rel="stylesheet" href="design/css/style.css">
+</head>
+<body>
+
+    <header>
+        <a class="logo" href="index.html">Dine<span>Out</span></a>
+        <span style="color:rgba(255,255,255,.55);font-size:.85rem;">Melbourne's Restaurant Discovery Platform</span>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="restaurants.html">Restaurants</a></li>
+            <li><a href="recommend.html">Recommend</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="reservation.html">Reserve</a></li>
+            <li><a href="bill.html">Bill Calculator</a></li>
+        </ul>
+    </nav>
+
+    <div class="page-hero">
+        <h1>Create an Account</h1>
+        <p>Join DineOut to save favourites, track reservations, and get personalised recommendations</p>
+    </div>
+
+    <main>
+        <div class="form-wrap">
+
+            <form id="register-form"
+                  method="POST"
+                  action="http://mercury.swin.edu.au/it000000/cos10005/regtest.php"
+                  onsubmit="return validateRegistration(event);"
+                  novalidate>
+
+                <p class="form-section-title">Account Details</p>
+
+                <!-- Username -->
+                <div class="form-group">
+                    <label for="reg-username">Username <span style="color:var(--error)">*</span></label>
+                    <input type="text" id="reg-username" name="username"
+                           placeholder="e.g. hossain_99" autocomplete="username">
+                    <span class="error-msg" id="reg-username-error"></span>
+                    <small style="color:var(--text-muted);font-size:.78rem;">
+                        Minimum 5 characters; letters, numbers, and underscores only.
+                    </small>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="reg-email">Email Address <span style="color:var(--error)">*</span></label>
+                    <input type="email" id="reg-email" name="email"
+                           placeholder="you@example.com" autocomplete="email">
+                    <span class="error-msg" id="reg-email-error"></span>
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+                    <label for="reg-phone">Phone Number <span style="color:var(--error)">*</span></label>
+                    <input type="tel" id="reg-phone" name="phone"
+                           placeholder="e.g. 0412345678" autocomplete="tel">
+                    <span class="error-msg" id="reg-phone-error"></span>
+                    <small style="color:var(--text-muted);font-size:.78rem;">Digits only, 8–15 digits.</small>
+                </div>
+
+                <!-- Password -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reg-password">Password <span style="color:var(--error)">*</span></label>
+                        <input type="password" id="reg-password" name="password"
+                               placeholder="Create a strong password" autocomplete="new-password">
+                        <span class="error-msg" id="reg-password-error"></span>
+                        <small style="color:var(--text-muted);font-size:.78rem;">
+                            Min 10 chars; include uppercase, lowercase, number &amp; special character.
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-confirm">Confirm Password <span style="color:var(--error)">*</span></label>
+                        <input type="password" id="reg-confirm" name="confirm_password"
+                               placeholder="Re-enter password" autocomplete="new-password">
+                        <span class="error-msg" id="reg-confirm-error"></span>
+                    </div>
+                </div>
+
+                <!-- ===== PERSONAL DETAILS ===== -->
+                <p class="form-section-title">Personal Details</p>
+
+                <!-- Gender -->
+                <div class="form-group">
+                    <label>Gender <span style="color:var(--error)">*</span></label>
+                    <div class="radio-group" id="reg-gender">
+                        <label>
+                            <input type="radio" name="gender" value="male">
+                            <span>Male</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="female">
+                            <span>Female</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="non-binary">
+                            <span>Non-binary</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="prefer-not">
+                            <span>Prefer not to say</span>
+                        </label>
+                    </div>
+                    <span class="error-msg" id="reg-gender-error"></span>
+                </div>
+
+                <!-- Dietary Preferences -->
+                <div class="form-group">
+                    <label>Dietary Preferences <span style="color:var(--error)">*</span></label>
+                    <div class="checkbox-group" id="reg-dietary">
+                        <label>
+                            <input type="checkbox" name="dietary" value="none">
+                            <span>No Restrictions</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="dietary" value="halal">
+                            <span>Halal</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="dietary" value="vegetarian">
+                            <span>Vegetarian</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="dietary" value="vegan">
+                            <span>Vegan</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="dietary" value="gluten-free">
+                            <span>Gluten-Free</span>
+                        </label>
+                    </div>
+                    <span class="error-msg" id="reg-dietary-error"></span>
+                </div>
+
+                <!-- Country -->
+                <div class="form-group">
+                    <label for="reg-country">Country / Region <span style="color:var(--error)">*</span></label>
+                    <select id="reg-country" name="country">
+                        <option value="">— Select your country —</option>
+                        <option value="AU">Australia</option>
+                        <option value="BD">Bangladesh</option>
+                        <option value="CN">China</option>
+                        <option value="IN">India</option>
+                        <option value="ID">Indonesia</option>
+                        <option value="MY">Malaysia</option>
+                        <option value="NZ">New Zealand</option>
+                        <option value="PK">Pakistan</option>
+                        <option value="SG">Singapore</option>
+                        <option value="UK">United Kingdom</option>
+                        <option value="US">United States</option>
+                        <option value="VN">Vietnam</option>
+                        <option value="OTHER">Other</option>
+                    </select>
+                    <span class="error-msg" id="reg-country-error"></span>
+                </div>
+
+                <!-- Submit -->
+                <div class="form-group" style="margin-top:1.5rem;">
+                    <button type="submit" class="btn btn-full" style="padding:.8rem;font-size:1rem;">
+                        Create Account
+                    </button>
+                </div>
+
+                <p style="text-align:center;font-size:.85rem;color:var(--text-muted);margin-top:.8rem;">
+                    Already have an account? <a href="reservation.html">Make a reservation</a>
+                </p>
+
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DineOut Melbourne &mdash; Hossain Khalid, 105978364 &mdash; Swinburne University of Technology</p>
+    </footer>
+
+    <script src="design/js/script.js"></script>
+</body>
+</html>
